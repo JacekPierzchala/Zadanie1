@@ -21,13 +21,13 @@ namespace Zadanie1.ApplicationLayer
         {
             var packagesToUpdate = new List<Package>();
             packagesDTO.ToList().ForEach(e => packagesToUpdate.Add(new Package
-            { 
-                 Id=e.Id,
-                 Name=e.Name,
-                  Description=e.Description,
-                  Weight=double.Parse(e.Weight)
-           
-            }));
+            {
+                Id = e.Id,
+                Name = e.Name,
+                Description = e.Description,
+                Weight = e.Weight !=null? double.Parse(e.Weight):0
+
+            })); ;
             _packageRepository.Update(packagesToUpdate);
         }
     }

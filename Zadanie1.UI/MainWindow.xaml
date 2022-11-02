@@ -16,7 +16,13 @@
         <StackPanel Grid.Row="0">
             <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Simple WPF APP"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Packages}" CanUserAddRows="False" />
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Packages}"  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name,UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description,UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn Header="Weight" Binding="{Binding Weight,UpdateSourceTrigger=PropertyChanged}"  />
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel Grid.Row="2">
             <Button Width="100" Margin="2 0" Content="Save" Command="{Binding SavePackagesCommand}" />
             <Button  Width="100" Margin="2 0"  Content="Cancel" Command="{Binding LoadPackagesCommand}" />

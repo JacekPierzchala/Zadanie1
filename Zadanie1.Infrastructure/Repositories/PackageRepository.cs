@@ -23,7 +23,9 @@ namespace Zadanie1.Infrastructure
 
         public void Update(IEnumerable<Package> packages)
         {
+         
             _databaseHandler.Db.UpdateAll(packages);
+            _databaseHandler.Db.InsertAll(packages.Where(e=>e.Id==0).ToList());
         }
     }
 }

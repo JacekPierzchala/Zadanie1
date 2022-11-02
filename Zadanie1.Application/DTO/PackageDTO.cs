@@ -24,6 +24,12 @@ namespace Zadanie1.ApplicationLayer
                 {
                     _weight = value;
                 }
+                else
+                {
+                    _weight = i.ToString();
+                }
+                
+                
               
             }
         }
